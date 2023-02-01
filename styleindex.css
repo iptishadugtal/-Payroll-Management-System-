@@ -1,0 +1,421 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+body{
+	margin: 0px;
+	background: #d3e8f3f0 
+
+}
+
+header{
+	background: black;
+	color: white;
+	padding: 8px 20px 6px 40px;
+	height: 50px;
+}
+
+header h1{
+	color: aliceblue;
+	display: inline;
+	font-family: 'Lobster', cursive;
+	font-weight: 400;
+	font-size: 32px;
+	float: left;
+	margin-top: 0px;
+	margin-right: 10px;
+}
+
+nav ul {
+	display: inline;
+	padding: 0px;
+	float: right;
+}
+
+nav ul li{
+	display: inline-block;
+	list-style-type: none;
+	color: white;
+	float: left;
+	margin-left: 12px;
+	
+
+}
+
+nav ul li a{
+	color: white;
+	text-decoration: none;	
+}
+
+
+nav ul ul{
+	display: none;
+	position: absolute;
+}
+
+#navli ul li ul:hovar{
+	visibility: visible;
+	display: block;
+}
+
+
+
+
+
+#navli{
+	font-family: 'Montserrat', sans-serif;
+}
+
+.homered{
+	background-color: rgb(60, 118, 35);
+	padding: 30px 10px 22px 10px;
+}
+
+.divider{
+	background-color: rgb(204, 232, 102);
+	height: 5px;
+}
+
+.homeblack:hover{
+	background-color: rgb(54, 138, 116);
+	padding: 30px 10px 21px 10px;
+
+}
+
+#divimg{
+	
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image:  url('../images/back.jpg');
+	padding: 0px;
+	margin: 10px;
+	height: 100%;
+	width: 100%;
+}
+
+
+#registration{
+	padding: 2px 2px 2px 2px;
+	text-align: center;
+	background-color: #F0FFFF;
+	height: 100%;
+	width: auto;
+	background-position: center;
+}
+
+#textField{
+	width: 350px;
+	height: 50px;
+	padding: 5px;
+	border-radius: 5px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+
+#gender{
+	font-family: 'Montserrat', sans-serif;
+}
+
+#sub{
+	width: 350px;
+	height: 50px;
+	padding: 5px;
+	border-radius: 5px;
+	outline: 0px;
+	background-color: #0fb899;
+}
+
+.table-emp{
+	padding: 5px;
+	height: auto;
+	width: 100%;
+	font-family: 'Montserrat', sans-serif;
+	text-align: center;
+	background-color: #4CAF50;
+}
+
+.table-emp tr th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+
+.simple-form1{
+	margin-left: 10px; 
+	padding: 2px 2px 2px 2px;
+	text-align: center;
+	background-color: #F0FFFF;
+	height: auto;
+	width: auto;
+	background-position: center;
+	
+}
+
+
+
+.leavetable{
+	width: 100%;
+	height: auto;
+}
+
+#textField{
+	width: 350px;
+	height: 50px;
+	padding: 5px;
+	border-radius: 5px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+
+
+.info{
+	margin-left: 10px;
+	padding: 100px;
+}
+
+
+
+.h2{
+	font-family: 'Montserrat', sans-serif;
+}
+
+body, html {
+	margin: 0;
+	font-family: "Montserrat", sans-serif;
+	color: #003945;
+	background-color: #EBFCFB;
+  }
+  
+  h1 {
+	text-align: center;
+	margin: 0 auto 60px auto;
+	font-size: 50px;
+	max-width: 400px;
+	font-weight: 700;
+	line-height: 1.1em;
+  }
+  h1 span {
+	color: #25D6C9;
+  }
+  
+  h2 {
+	font-size: 24px;
+	font-weight: 700;
+	margin: 0;
+  }
+  
+  h3 {
+	font-size: 18px;
+	font-weight: 700;
+	background-color: #EBFCFB;
+	padding: 0 10px;
+	line-height: 1.2em;
+  }
+  
+  p {
+	font-size: 14px;
+	color: #25D6C9;
+	line-height: 1.3em;
+	padding: 20px 10px;
+	font-weight: 400;
+  }
+  
+  .platform-wrapper {
+	width: 100%;
+	padding: 80px 0;
+  }
+  
+  .platform {
+	display: flex;
+	flex-wrap: wrap;
+	width: 50%;
+	margin: 0 auto;
+	position: relative;
+  }
+  
+  .platform-segment {
+	width: 50%;
+	flex-shrink: 0;
+	position: relative;
+	display: block;
+	color: #003945;
+	text-decoration: none;
+  }
+  .platform-segment svg {
+	width: 100%;
+	height: auto;
+	display: block;
+  }
+  .platform-segment:hover .platform-segment-bg, .platform-segment:focus .platform-segment-bg {
+	transform: scale(1.1);
+	opacity: 0.4;
+  }
+  .platform-segment:hover .platform-segment-text--1, .platform-segment:hover .platform-segment-text--3, .platform-segment:focus .platform-segment-text--1, .platform-segment:focus .platform-segment-text--3 {
+	transform: translateX(-10px);
+  }
+  .platform-segment:hover .platform-segment-text--2, .platform-segment:hover .platform-segment-text--4, .platform-segment:focus .platform-segment-text--2, .platform-segment:focus .platform-segment-text--4 {
+	transform: translateX(10px);
+  }
+  
+  .platform-segment-text {
+	position: absolute;
+	max-width: 160px;
+	z-index: 2;
+	transition: transform 0.2s;
+  }
+  .platform-segment-text--1 {
+	text-align: right;
+	top: 46%;
+	left: -200px;
+	padding-right: 50px;
+  }
+  .platform-segment-text--2 {
+	text-align: left;
+	top: 46%;
+	right: -200px;
+	padding-left: 50px;
+  }
+  .platform-segment-text--3 {
+	text-align: right;
+	top: 46%;
+	left: -200px;
+	padding-right: 50px;
+  }
+  .platform-segment-text--4 {
+	text-align: left;
+	right: -200px;
+	padding-left: 50px;
+	top: 46%;
+  }
+  
+  .platform-segment-extras {
+	position: absolute;
+	display: block;
+	width: 100%;
+  }
+  .platform-segment-extras--1, .platform-segment-extras--2 {
+	top: 50%;
+  }
+  .platform-segment-extras--3, .platform-segment-extras--4 {
+	bottom: 50%;
+  }
+  .platform-segment-extras--1, .platform-segment-extras--3 {
+	left: -58%;
+  }
+  .platform-segment-extras--1 .platform-segment-icon, .platform-segment-extras--3 .platform-segment-icon {
+	right: 0;
+  }
+  .platform-segment-extras--2, .platform-segment-extras--4 {
+	left: 62%;
+  }
+  .platform-segment-extras--2 .platform-segment-icon, .platform-segment-extras--4 .platform-segment-icon {
+	left: -10px;
+  }
+  
+  .platform-segment-line {
+	display: block;
+	border-top: 1px dashed #25D6C9;
+	width: 100%;
+  }
+  
+  .platform-segment-icon {
+	position: absolute;
+	font-size: 30px;
+	font-weight: 700;
+	top: -15px;
+	z-index: 2;
+	background-color: #C1F4F1;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	border-radius: 50%;
+  }
+  
+  .platform-segment-bg {
+	opacity: 0.2;
+	transition: transform 0.2s, opacity 0.2s;
+  }
+  .platform-segment-bg--1 {
+	transform-origin: bottom right;
+	margin: 0 2px 2px 0;
+  }
+  .platform-segment-bg--2 {
+	transform-origin: bottom left;
+	margin: 0 0 2px 2px;
+  }
+  .platform-segment-bg--3 {
+	transform-origin: top right;
+	margin: 2px 2px 0 0;
+  }
+  .platform-segment-bg--4 {
+	transform-origin: top left;
+	margin: 2px 0 0 2px;
+  }
+  
+  .platform-payroll {
+	position: absolute;
+	width: 60%;
+	height: 60%;
+	display: block;
+	text-decoration: none;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 3;
+	left: calc(20% - 2px);
+	top: calc(20% - 2px);
+	transform: translateZ(0px);
+	color: #003945;
+  }
+  .platform-payroll:hover, .platform-payroll:focus {
+	cursor: pointer;
+  }
+  .platform-payroll:hover .platform-payroll-bg, .platform-payroll:focus .platform-payroll-bg {
+	transform: scale(1.1);
+  }
+  .platform-payroll:hover .platform-payroll-icon, .platform-payroll:focus .platform-payroll-icon {
+	transform: translateY(-10px);
+  }
+  
+  .platform-payroll-text {
+	z-index: 2;
+	text-align: center;
+	max-width: 60%;
+  }
+  
+  .platform-payroll-bg {
+	transition: transform 0.2s;
+	border-radius: 50%;
+	background-color: white;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+  }
+  
+  .platform-payroll-icon {
+	width: 50px;
+	margin: 0 auto;
+	transition: transform 0.2s;
+  }
+  .platform-payroll-icon svg {
+	width: 100%;
+  }
+  
+  .platform-dashed-circle {
+	position: absolute;
+	width: 80%;
+	height: 80%;
+	border-radius: 50%;
+	background-color: transparent;
+	border: 1px dashed #25D6C9;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 2;
+	left: calc(10% - 2px);
+	top: calc(10% - 2px);
+	pointer-events: none;
+  }
