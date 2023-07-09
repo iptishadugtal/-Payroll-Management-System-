@@ -1,4 +1,3 @@
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
@@ -6,11 +5,11 @@ SET time_zone = "+00:00";
 
 
 
+
 -- Database: `370project`
 
-
-
 -- Table structure for table `alogin`
+
 
 CREATE TABLE `alogin` (
   `id` int(11) NOT NULL,
@@ -18,18 +17,16 @@ CREATE TABLE `alogin` (
   `password` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
+
 -- Dumping data for table `alogin`
---
+
 
 INSERT INTO `alogin` (`id`, `email`, `password`) VALUES
 (1, 'admin', 'admin');
 
--- --------------------------------------------------------
 
---
+
 -- Table structure for table `overtime`
---
 
 CREATE TABLE IF NOT EXISTS `overtime` (
   `ot_id` int(10) NOT NULL AUTO_INCREMENT,
@@ -38,16 +35,14 @@ CREATE TABLE IF NOT EXISTS `overtime` (
   PRIMARY KEY (`ot_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
---
 -- Dumping data for table `overtime`
---
+
 
 INSERT INTO `overtime` (`ot_id`, `rate`, `none`) VALUES
 (1, 10, 0);
 
--- --------------------------------------------------------
 -- Table structure for table `employee`
---
+
 
 CREATE TABLE `employee` (
   `id` int(11) NOT NULL,
@@ -84,9 +79,9 @@ INSERT INTO `employee` (`id`, `firstName`, `lastName`, `email`, `password`, `bir
 
 -- --------------------------------------------------------
 
---
+
 -- Table structure for table `deductions`
---
+
 
 CREATE TABLE IF NOT EXISTS `deductions` (
   `deduction_id` int(5) NOT NULL AUTO_INCREMENT,
@@ -98,16 +93,15 @@ CREATE TABLE IF NOT EXISTS `deductions` (
   PRIMARY KEY (`deduction_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
---
+
 -- Dumping data for table `deductions`
---
+
 
 INSERT INTO `deductions` (`deduction_id`, `philhealth`, `bir`, `gsis`, `pag_ibig`, `loans`) VALUES
 (1, 1, 2, 3, 4, 5);
 
 -- --------------------------------------------------------
 -- Table structure for table `employee_leave`
---
 
 CREATE TABLE `employee_leave` (
   `id` int(11) DEFAULT NULL,
@@ -133,9 +127,9 @@ INSERT INTO `employee_leave` (`id`, `token`, `start`, `end`, `reason`, `status`)
 
 -- --------------------------------------------------------
 
---
+
 -- Table structure for table `project`
---
+
 
 CREATE TABLE `project` (
   `pid` int(11) NOT NULL,
@@ -147,9 +141,9 @@ CREATE TABLE `project` (
   `status` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
+
 -- Dumping data for table `project`
---
+
 
 INSERT INTO `project` (`pid`, `eid`, `pname`, `duedate`, `subdate`, `mark`, `status`) VALUES
 (213, 101, 'Database', '2019-04-07', '2019-04-04', 10, 'Submitted'),
@@ -168,18 +162,18 @@ INSERT INTO `project` (`pid`, `eid`, `pname`, `duedate`, `subdate`, `mark`, `sta
 
 -- --------------------------------------------------------
 
---
+
 -- Table structure for table `rank`
---
+
 
 CREATE TABLE `rank` (
   `eid` int(11) NOT NULL,
   `points` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
+
 -- Dumping data for table `rank`
---
+
 
 INSERT INTO `rank` (`eid`, `points`) VALUES
 (101, 10),
@@ -323,3 +317,7 @@ ALTER TABLE `rank`
 ALTER TABLE `salary`
   ADD CONSTRAINT `salary_ibfk_1` FOREIGN KEY (`id`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
