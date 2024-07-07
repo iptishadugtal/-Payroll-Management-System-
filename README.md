@@ -1,6 +1,6 @@
-# Employee Management System Database
+# PAYROLL MANAGEMENT SYSTEM
 
- It is a simple university project of database course. I have made a simple UI and basic SQL commands to make this project.
+ It is a project of database made with a simple UI and SQL commands .
 Created with help of YouTube, Google, GitHub, Stack Overflow and so on. 
 
 ## This site features:
