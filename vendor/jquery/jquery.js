@@ -1,29 +1,10 @@
-/*!
- * jQuery JavaScript Library v3.2.1
- * https://jquery.com/
- *
- * Includes Sizzle.js
- * https://sizzlejs.com/
- *
- * Copyright JS Foundation and other contributors
- * Released under the MIT license
- * https://jquery.org/license
- *
- * Date: 2017-03-20T18:59Z
- */
+
 ( function( global, factory ) {
 
 	"use strict";
 
 	if ( typeof module === "object" && typeof module.exports === "object" ) {
 
-		// For CommonJS and CommonJS-like environments where a proper `window`
-		// is present, execute the factory and get jQuery.
-		// For environments that do not have a `window` with a `document`
-		// (such as Node.js), expose a factory as module.exports.
-		// This accentuates the need for the creation of a real `window`.
-		// e.g. var jQuery = require("jquery")(window);
-		// See ticket #14549 for more info.
 		module.exports = global.document ?
 			factory( global, true ) :
 			function( w ) {
@@ -38,11 +19,6 @@
 
 // Pass this if window is not defined yet
 } )( typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
-
-// Edge <= 12 - 13+, Firefox <=18 - 45+, IE 10 - 11, Safari 5.1 - 9+, iOS 6 - 9.1
-// throw exceptions when non-strict code (e.g., ASP.NET 4.5) accesses strict mode
-// arguments.callee.caller (trac-13335). But as of jQuery 3.0 (2016), strict mode should be common
-// enough that all such attempts are guarded in a try block.
 "use strict";
 
 var arr = [];
@@ -82,77 +58,47 @@ var support = {};
 		doc.head.appendChild( script ).parentNode.removeChild( script );
 	}
 /* global Symbol */
-// Defining this global in .eslintrc.json would create a danger of using the global
-// unguarded in another place, it seems safer to define global only for this module
-
-
 
 var
 	version = "3.2.1",
 
-	// Define a local copy of jQuery
 	jQuery = function( selector, context ) {
-
-		// The jQuery object is actually just the init constructor 'enhanced'
-		// Need init if jQuery is called (just allow error to be thrown if not included)
 		return new jQuery.fn.init( selector, context );
 	},
 
-	// Support: Android <=4.0 only
-	// Make sure we trim BOM and NBSP
 	rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,
-
-	// Matches dashed string for camelizing
 	rmsPrefix = /^-ms-/,
 	rdashAlpha = /-([a-z])/g,
-
 	// Used by jQuery.camelCase as callback to replace()
 	fcamelCase = function( all, letter ) {
 		return letter.toUpperCase();
 	};
 
 jQuery.fn = jQuery.prototype = {
-
-	// The current version of jQuery being used
 	jquery: version,
 
 	constructor: jQuery,
-
-	// The default length of a jQuery object is 0
 	length: 0,
 
 	toArray: function() {
 		return slice.call( this );
 	},
-
-	// Get the Nth element in the matched element set OR
-	// Get the whole matched element set as a clean array
 	get: function( num ) {
 
-		// Return all the elements in a clean array
 		if ( num == null ) {
 			return slice.call( this );
 		}
-
-		// Return just the one element from the set
 		return num < 0 ? this[ num + this.length ] : this[ num ];
 	},
 
-	// Take an array of elements and push it onto the stack
-	// (returning the new matched element set)
 	pushStack: function( elems ) {
-
-		// Build a new jQuery matched element set
 		var ret = jQuery.merge( this.constructor(), elems );
 
 		// Add the old object onto the stack (as a reference)
 		ret.prevObject = this;
-
-		// Return the newly-formed element set
 		return ret;
 	},
 
-	// Execute a callback for every element in the matched set.
 	each: function( callback ) {
 		return jQuery.each( this, callback );
 	},
@@ -185,8 +131,6 @@ jQuery.fn = jQuery.prototype = {
 		return this.prevObject || this.constructor();
 	},
 
-	// For internal use only.
-	// Behaves like an Array's method, not like a jQuery method.
 	push: push,
 	sort: arr.sort,
 	splice: arr.splice
@@ -199,21 +143,17 @@ jQuery.extend = jQuery.fn.extend = function() {
 		length = arguments.length,
 		deep = false;
 
-	// Handle a deep copy situation
 	if ( typeof target === "boolean" ) {
 		deep = target;
 
-		// Skip the boolean and the target
 		target = arguments[ i ] || {};
 		i++;
 	}
 
-	// Handle case when target is a string or something (possible in deep copy)
 	if ( typeof target !== "object" && !jQuery.isFunction( target ) ) {
 		target = {};
 	}
 
-	// Extend jQuery itself if only one argument is passed
 	if ( i === length ) {
 		target = this;
 		i--;
@@ -221,7 +161,6 @@ jQuery.extend = jQuery.fn.extend = function() {
 
 	for ( ; i < length; i++ ) {
 
-		// Only deal with non-null/undefined values
 		if ( ( options = arguments[ i ] ) != null ) {
 
 			// Extend the base object
@@ -229,12 +168,10 @@ jQuery.extend = jQuery.fn.extend = function() {
 				src = target[ name ];
 				copy = options[ name ];
 
-				// Prevent never-ending loop
 				if ( target === copy ) {
 					continue;
 				}
 
-				// Recurse if we're merging plain objects or arrays
 				if ( deep && copy && ( jQuery.isPlainObject( copy ) ||
 					( copyIsArray = Array.isArray( copy ) ) ) ) {
 
@@ -246,7 +183,6 @@ jQuery.extend = jQuery.fn.extend = function() {
 						clone = src && jQuery.isPlainObject( src ) ? src : {};
 					}
 
-					// Never move original objects, clone them
 					target[ name ] = jQuery.extend( deep, clone, copy );
 
 				// Don't bring in undefined values
@@ -257,16 +193,12 @@ jQuery.extend = jQuery.fn.extend = function() {
 		}
 	}
 
-	// Return the modified object
 	return target;
 };
 
 jQuery.extend( {
 
-	// Unique for each copy of jQuery on the page
 	expando: "jQuery" + ( version + Math.random() ).replace( /\D/g, "" ),
-
-	// Assume jQuery is ready without the ready module
 	isReady: true,
 
 	error: function( msg ) {
@@ -285,43 +217,28 @@ jQuery.extend( {
 
 	isNumeric: function( obj ) {
 
-		// As of jQuery 3.0, isNumeric is limited to
-		// strings and numbers (primitives or objects)
-		// that can be coerced to finite numbers (gh-2662)
 		var type = jQuery.type( obj );
 		return ( type === "number" || type === "string" ) &&
-
-			// parseFloat NaNs numeric-cast false positives ("")
-			// ...but misinterprets leading-number strings, particularly hex literals ("0x...")
-			// subtraction forces infinities to NaN
 			!isNaN( obj - parseFloat( obj ) );
 	},
 
 	isPlainObject: function( obj ) {
 		var proto, Ctor;
-
-		// Detect obvious negatives
-		// Use toString instead of jQuery.type to catch host objects
 		if ( !obj || toString.call( obj ) !== "[object Object]" ) {
 			return false;
 		}
 
 		proto = getProto( obj );
-
-		// Objects with no prototype (e.g., `Object.create( null )`) are plain
 		if ( !proto ) {
 			return true;
 		}
 
-		// Objects with prototype are plain iff they were constructed by a global Object function
 		Ctor = hasOwn.call( proto, "constructor" ) && proto.constructor;
 		return typeof Ctor === "function" && fnToString.call( Ctor ) === ObjectFunctionString;
 	},
 
 	isEmptyObject: function( obj ) {
 
-		/* eslint-disable no-unused-vars */
-		// See https://github.com/eslint/eslint/issues/6125
 		var name;
 
 		for ( name in obj ) {
@@ -346,9 +263,6 @@ jQuery.extend( {
 		DOMEval( code );
 	},
 
-	// Convert dashed to camelCase; used by the css and data modules
-	// Support: IE <=9 - 11, Edge 12 - 13
-	// Microsoft forgot to hump their vendor prefix (#9572)
 	camelCase: function( string ) {
 		return string.replace( rmsPrefix, "ms-" ).replace( rdashAlpha, fcamelCase );
 	},
@@ -403,8 +317,6 @@ jQuery.extend( {
 		return arr == null ? -1 : indexOf.call( arr, elem, i );
 	},
 
-	// Support: Android <=4.0 only, PhantomJS 1 only
-	// push.apply(_, arraylike) throws on ancient WebKit
 	merge: function( first, second ) {
 		var len = +second.length,
 			j = 0,
@@ -483,9 +395,6 @@ jQuery.extend( {
 			context = fn;
 			fn = tmp;
 		}
-
-		// Quick check to determine if target is callable, in the spec
-		// this throws a TypeError, but we will just return undefined.
 		if ( !jQuery.isFunction( fn ) ) {
 			return undefined;
 		}
@@ -496,7 +405,6 @@ jQuery.extend( {
 			return fn.apply( context || this, args.concat( slice.call( arguments ) ) );
 		};
 
-		// Set the guid of unique handler to the same of original handler, so it can be removed
 		proxy.guid = fn.guid = fn.guid || jQuery.guid++;
 
 		return proxy;
@@ -504,8 +412,6 @@ jQuery.extend( {
 
 	now: Date.now,
 
-	// jQuery.support is not used in Core but other projects attach their
-	// properties to it so it needs to exist.
 	support: support
 } );
 
@@ -513,7 +419,6 @@ if ( typeof Symbol === "function" ) {
 	jQuery.fn[ Symbol.iterator ] = arr[ Symbol.iterator ];
 }
 
-// Populate the class2type map
 jQuery.each( "Boolean Number String Function Array Date RegExp Object Error Symbol".split( " " ),
 function( i, name ) {
 	class2type[ "[object " + name + "]" ] = name.toLowerCase();
@@ -521,10 +426,6 @@ function( i, name ) {
 
 function isArrayLike( obj ) {
 
-	// Support: real iOS 8.2 only (not reproducible in simulator)
-	// `in` check used to prevent JIT error (gh-2145)
-	// hasOwn isn't used here due to false negatives
-	// regarding Nodelist length in IE
 	var length = !!obj && "length" in obj && obj.length,
 		type = jQuery.type( obj );
 
@@ -536,16 +437,7 @@ function isArrayLike( obj ) {
 		typeof length === "number" && length > 0 && ( length - 1 ) in obj;
 }
 var Sizzle =
-/*!
- * Sizzle CSS Selector Engine v2.3.3
- * https://sizzlejs.com/
- *
- * Copyright jQuery Foundation and other contributors
- * Released under the MIT license
- * http://jquery.org/license
- *
- * Date: 2016-08-08
- */
+
 (function( window ) {
 
 var i,
@@ -593,7 +485,7 @@ var i,
 	push = arr.push,
 	slice = arr.slice,
 	// Use a stripped-down indexOf as it's faster than native
-	// https://jsperf.com/thor-indexof-vs-for/5
+
 	indexOf = function( list, elem ) {
 		var i = 0,
 			len = list.length;
@@ -607,15 +499,10 @@ var i,
 
 	booleans = "checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",
 
-	// Regular expressions
 
-	// http://www.w3.org/TR/css3-selectors/#whitespace
 	whitespace = "[\\x20\\t\\r\\n\\f]",
 
-	// http://www.w3.org/TR/CSS21/syndata.html#value-def-identifier
 	identifier = "(?:\\\\.|[\\w-]|[^\0-\\xa0])+",
-
-	// Attribute selectors: http://www.w3.org/TR/selectors/#attribute-selectors
 	attributes = "\\[" + whitespace + "*(" + identifier + ")(?:" + whitespace +
 		// Operator (capture 2)
 		"*([*^$|!~]?=)" + whitespace +
@@ -624,16 +511,11 @@ var i,
 		"*\\]",
 
 	pseudos = ":(" + identifier + ")(?:\\((" +
-		// To reduce the number of selectors needing tokenize in the preFilter, prefer arguments:
-		// 1. quoted (capture 3; capture 4 or capture 5)
 		"('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|" +
-		// 2. simple (capture 6)
 		"((?:\\\\.|[^\\\\()[\\]]|" + attributes + ")*)|" +
-		// 3. anything else (capture 2)
 		".*" +
 		")\\)|)",
 
-	// Leading and non-escaped trailing whitespace, capturing some non-whitespace characters preceding the latter
 	rwhitespace = new RegExp( whitespace + "+", "g" ),
 	rtrim = new RegExp( "^" + whitespace + "+|((?:^|[^\\\\])(?:\\\\.)*)" + whitespace + "+$", "g" ),
 
@@ -707,10 +589,6 @@ var i,
 		return "\\" + ch;
 	},
 
-	// Used for iframes
-	// See setDocument()
-	// Removing the function wrapper causes a "Permission Denied"
-	// error in IE
 	unloadHandler = function() {
 		setDocument();
 	},
@@ -728,8 +606,7 @@ try {
 		(arr = slice.call( preferredDoc.childNodes )),
 		preferredDoc.childNodes
 	);
-	// Support: Android<4.0
-	// Detect silently failing push.apply
+
 	arr[ preferredDoc.childNodes.length ].nodeType;
 } catch ( e ) {
 	push = { apply: arr.length ?
@@ -739,8 +616,6 @@ try {
 			push_native.apply( target, slice.call(els) );
 		} :
 
-		// Support: IE<9
-		// Otherwise append directly
 		function( target, els ) {
 			var j = target.length,
 				i = 0;
